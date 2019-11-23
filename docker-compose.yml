@@ -1,0 +1,26 @@
+version: '2.4'
+
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    restart: always
+    hostname: dashboard
+    volumes:
+      - .:/app
+    ports:
+      - '9999:9000'
+
+  # web:
+  #   image: nginx
+  #   hostname: nginx
+  #   depends_on:
+  #     - dashboard
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d:ro
+  #   ports:
+  #     - "80:80"
+  #   restart: always
+# pm2 start npm -- start
